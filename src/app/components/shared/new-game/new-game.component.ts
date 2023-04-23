@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-new-game',
@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-game.component.css']
 })
 export class NewGameComponent {
+  @Output() closeClick = new EventEmitter<void>()
+  @Output() startGameClick = new EventEmitter<void>()
 
+  onCloseClick(): void {
+
+    this.closeClick.emit();
+  }
+
+  onStartGameClick(): void {
+
+    alert("Oyuna Başlanacak");
+
+    this.startGameClick.emit();
+  }
 }

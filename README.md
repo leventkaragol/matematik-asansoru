@@ -1,4 +1,4 @@
-# Asansör
+# Matematik Asansörü
 
 Bu oyun projesi, 2023 yılında Erdem Koleji bilim şenliğine katılmak amacıyla 7. sınıf öğrencisi Esma Zehra KARAGÖL, Zehra KÜÇÜK ve Selahattin Serdar MENGİR ile birlikte geliştirilmiştir. 
 

@@ -1,1 +1,6 @@
-Ana Menü
+<div id="mainMenuContainer">
+
+  <app-new-game *ngIf="newGameFormVisible" (closeClick)="onNewGameFormCloseClick()" (startGameClick)="onStartGameClick()"></app-new-game>
+
+  <div class="start-game-button" (click)="onNewGameClick()"></div>
+</div>

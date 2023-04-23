@@ -15,17 +15,12 @@ import {trigger, state, style, transition, animate} from '@angular/animations';
   ]
 })
 export class AppComponent {
-  title = 'Matematik Asansörü';
 
   gameLoaded = false;
   mainMenuLoaded = false;
+  gameVisible = false;
   splashScreenState = 'hidden';
   mainMenuState = 'hidden';
-
-  constructor() {
-
-
-  }
 
   onFullscreenClick() {
 
@@ -43,5 +38,10 @@ export class AppComponent {
       this.mainMenuLoaded = true;
       this.mainMenuState = 'visible';
     }, 6000);
+  }
+
+  onStartGameClick() {
+
+    this.gameVisible = true;
   }
 }
