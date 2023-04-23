@@ -19,7 +19,7 @@
   display: inline-block;
   width: 250px;
   height: 80px;
-  background-image: url('src/assets/images/oyuna-basla.png');
+  background-image: url('src/assets/images/start-game-button.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -32,5 +32,5 @@
 }
 
 .start-game-button:hover {
-  background-image: url('src/assets/images/oyuna-basla-hover.png');
+  background-image: url('src/assets/images/start-game-button-hover.png');
 }

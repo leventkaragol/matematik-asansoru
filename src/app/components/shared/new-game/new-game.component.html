@@ -1,8 +1,13 @@
 <div class="backdrop" (click)="onCloseClick()"></div>
 <div class="new-game-form">
 
-  <button (click)="onCloseClick()">Kapat</button>
+  <div class="close-form-button" (click)="onCloseClick()"></div>
 
-  <button (click)="onStartGameClick()">Oyuna Başla</button>
+  <img class="player1-label">
+  <img class="player2-label">
+  <input type="text" [(ngModel)]="player1Name" class="player1-name">
+  <input type="text" [(ngModel)]="player2Name" class="player2-name">
+
+  <div class="start-game-button" (click)="onStartGameClick()"></div>
 
 </div>

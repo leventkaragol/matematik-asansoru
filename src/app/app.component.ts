@@ -32,12 +32,12 @@ export class AppComponent {
 
     setTimeout(() => {
       this.splashScreenState = 'hidden';
-    }, 5000);
+    }, 600);
 
     setTimeout(() => {
       this.mainMenuLoaded = true;
       this.mainMenuState = 'visible';
-    }, 6000);
+    }, 700);
   }
 
   onStartGameClick() {

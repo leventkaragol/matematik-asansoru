@@ -8,6 +8,7 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { GameComponent } from './components/game/game.component';
 import { NewGameComponent } from './components/shared/new-game/new-game.component';
 import { PreLoadComponent } from './components/pre-load/pre-load.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PreLoadComponent } from './components/pre-load/pre-load.component';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
