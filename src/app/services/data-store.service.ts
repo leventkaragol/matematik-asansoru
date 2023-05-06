@@ -1,4 +1,6 @@
 import {Injectable} from '@angular/core';
+import * as elementaryQuestions from "../../assets/questions/elementary.json";
+import * as intermediateQuestions from "../../assets/questions/intermediate.json";
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +23,13 @@ export class DataStoreService {
       player1Name: this.player1Name,
       player2Name: this.player2Name
     }
+  }
+
+  getElementaryQuestions(): { question: number, answer: number, fileName: string }[] {
+    return elementaryQuestions;
+  }
+
+  getIntermediateQuestions(): { question: number, answer: number, fileName: string }[] {
+    return intermediateQuestions;
   }
 }

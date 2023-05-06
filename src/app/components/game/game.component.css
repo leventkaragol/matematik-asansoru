@@ -66,6 +66,7 @@
   text-align: center;
   overflow: hidden;
   white-space: nowrap;
+  text-shadow: 1px 1px 2px #000000;
 }
 
 .player2Name {
@@ -80,6 +81,7 @@
   text-align: center;
   overflow: hidden;
   white-space: nowrap;
+  text-shadow: 1px 1px 2px #000000;
 }
 
 .timer {
@@ -109,4 +111,12 @@
   height: 251px;
   position: absolute;
   right: 70px;
+}
+
+.question {
+  width: 886px;
+  height: 497px;
+  position: absolute;
+  top: 559px;
+  left: 516px;
 }

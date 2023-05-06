@@ -19,9 +19,11 @@
   <img *ngIf="player2Life >= 2" src="assets/images/heart.png" class="heart" style="left: 1800px;">
   <img *ngIf="player2Life >= 1" src="assets/images/heart.png" class="heart" style="left: 1850px;">
 
-  <div class="timer">00:30</div>
+  <div class="timer">{{remainingTimeText}}</div>
 
-  <img src="assets/images/elevator-left.png" class="elevatorLeft" style="top: 700px;">
-  <img src="assets/images/elevator-right.png" class="elevatorRight" style="top: 700px;">
+  <img src="assets/images/elevator-left.png" class="elevatorLeft" [style.top]="player1ElevatorPosition">
+  <img src="assets/images/elevator-right.png" class="elevatorRight" [style.top]="player2ElevatorPosition">
+
+  <img src="assets/questions/elementary/ilkokul1.jpeg" class="question">
 
 </div>
