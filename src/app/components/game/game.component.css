@@ -1,4 +1,4 @@
-#gameContainer {
+#gameContainerEmpty {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,4 +13,100 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+
+#gameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000000;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: url('src/assets/images/game-platform.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.questionPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 500px;
+  background-color: #000000;
+  border: 5px solid #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.heart {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 88px;
+}
+
+.player1Name {
+  position: absolute;
+  top: 23px;
+  left: 45px;
+  width: 430px;
+  font-family: sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: #348a63;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.player2Name {
+  position: absolute;
+  top: 23px;
+  right: 45px;
+  width: 430px;
+  font-family: sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: #348a63;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 100px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffcc00;
+  margin-top: 30px;
+  margin-bottom: auto;
+  text-shadow: 3px 3px 4px #000000;
+}
+
+.elevatorLeft {
+  width: 374px;
+  height: 251px;
+  position: absolute;
+  left: 70px;
+}
+
+.elevatorRight {
+  width: 374px;
+  height: 251px;
+  position: absolute;
+  right: 70px;
 }

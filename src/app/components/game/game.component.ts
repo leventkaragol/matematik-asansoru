@@ -8,10 +8,13 @@ import {DataStoreService} from "../../services/data-store.service";
 })
 export class GameComponent implements AfterViewInit {
 
-  private player1Name: string = "";
-  private player2Name: string = "";
-  private player1Life: number = 3;
-  private player2Life: number = 3;
+  public isGameStarted: boolean = false;
+
+  public player1Name: string = "";
+  public player1Life: number = 3;
+
+  public player2Name: string = "";
+  public player2Life: number = 3;
 
   constructor(private dataStoreService: DataStoreService) {
 
@@ -29,7 +32,14 @@ export class GameComponent implements AfterViewInit {
     this.player1Name = playerNames.player1Name;
     this.player2Name = playerNames.player2Name;
 
+    console.log(this.player1Name);
+    console.log(this.player2Name);
+
     this.player1Life = 3;
     this.player2Life = 3;
+
+    Promise.resolve().then(() => {
+      this.isGameStarted = true;
+    });
   }
 }
