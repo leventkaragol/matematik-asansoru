@@ -1,12 +1,162 @@
 [
   {
-    "question": 1,
-    "answer": 2,
-    "fileName": "ortaokul1.jpg"
+    "filename": "intermediate1.jpg",
+    "answer": 3
   },
   {
-    "question": 2,
-    "answer": 4,
-    "fileName": "ortaokul2.jpg"
+    "filename": "intermediate2.jpg",
+    "answer": 4
+  },
+  {
+    "filename": "intermediate3.jpg",
+    "answer": 3
+  },
+  {
+    "filename": "intermediate4.jpg",
+    "answer": 1
+  },
+  {
+    "filename": "intermediate5.jpg",
+    "answer": 3
+  },
+  {
+    "filename": "intermediate6.jpg",
+    "answer": 3
+  },
+  {
+    "filename": "intermediate7.jpg",
+    "answer": 2
+  },
+  {
+    "filename": "intermediate8.jpg",
+    "answer": 2
+  },
+  {
+    "filename": "intermediate9.jpg",
+    "answer": 2
+  },
+  {
+    "filename": "intermediate10.jpg",
+    "answer": 3
+  },
+  {
+    "filename": "intermediate11.jpg",
+    "answer": 3
+  },
+  {
+    "filename": "intermediate12.jpg",
+    "answer": 3
+  },
+  {
+    "filename": "intermediate13.jpg",
+    "answer": 2
+  },
+  {
+    "filename": "intermediate14.jpg",
+    "answer": 3
+  },
+  {
+    "filename": "intermediate15.jpg",
+    "answer": 4
+  },
+  {
+    "filename": "intermediate16.jpg",
+    "answer": 3
+  },
+  {
+    "filename": "intermediate17.jpg",
+    "answer": 2
+  },
+  {
+    "filename": "intermediate18.jpg",
+    "answer": 2
+  },
+  {
+    "filename": "intermediate19.jpg",
+    "answer": 1
+  },
+  {
+    "filename": "intermediate20.jpg",
+    "answer": 4
+  },
+  {
+    "filename": "intermediate21.jpg",
+    "answer": 1
+  },
+  {
+    "filename": "intermediate22.jpg",
+    "answer": 3
+  },
+  {
+    "filename": "intermediate23.jpg",
+    "answer": 2
+  },
+  {
+    "filename": "intermediate24.jpg",
+    "answer": 3
+  },
+  {
+    "filename": "intermediate25.jpg",
+    "answer": 2
+  },
+  {
+    "filename": "intermediate26.jpg",
+    "answer": 1
+  },
+  {
+    "filename": "intermediate27.jpg",
+    "answer": 1
+  },
+  {
+    "filename": "intermediate28.jpg",
+    "answer": 2
+  },
+  {
+    "filename": "intermediate29.jpg",
+    "answer": 3
+  },
+  {
+    "filename": "intermediate30.jpg",
+    "answer": 4
+  },
+  {
+    "filename": "intermediate31.jpg",
+    "answer": 1
+  },
+  {
+    "filename": "intermediate32.jpg",
+    "answer": 4
+  },
+  {
+    "filename": "intermediate33.jpg",
+    "answer": 2
+  },
+  {
+    "filename": "intermediate34.jpg",
+    "answer": 3
+  },
+  {
+    "filename": "intermediate35.jpg",
+    "answer": 1
+  },
+  {
+    "filename": "intermediate36.jpg",
+    "answer": 3
+  },
+  {
+    "filename": "intermediate37.jpg",
+    "answer": 4
+  },
+  {
+    "filename": "intermediate38.jpg",
+    "answer": 3
+  },
+  {
+    "filename": "intermediate39.jpg",
+    "answer": 4
+  },
+  {
+    "filename": "intermediate40.jpg",
+    "answer": 3
   }
 ]
