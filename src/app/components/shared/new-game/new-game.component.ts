@@ -13,6 +13,9 @@ export class NewGameComponent {
   player1Name: string = "Esma";
   player2Name: string = "Ayşe";
 
+  isElementarySelected: boolean = true;
+  isIntermediateSelected: boolean = false;
+
   constructor(private dataStoreService: DataStoreService) {
 
   }
@@ -26,6 +29,20 @@ export class NewGameComponent {
 
     this.dataStoreService.setPlayerNames(this.player1Name, this.player2Name);
 
+    this.dataStoreService.setLevel(this.isElementarySelected ? 1 : 2);
+
     this.startGameClick.emit();
+  }
+
+  selectElementary(): void {
+
+    this.isElementarySelected = true;
+    this.isIntermediateSelected = false;
+  }
+
+  selectIntermediate(): void {
+
+    this.isElementarySelected = false;
+    this.isIntermediateSelected = true;
   }
 }

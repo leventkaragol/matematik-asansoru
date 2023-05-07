@@ -24,6 +24,21 @@
   <img src="assets/images/elevator-left.png" class="elevatorLeft" [style.top]="player1ElevatorPosition">
   <img src="assets/images/elevator-right.png" class="elevatorRight" [style.top]="player2ElevatorPosition">
 
-  <img src="assets/questions/elementary/ilkokul1.jpeg" class="question">
+  <img [src]="currentQuestionImage" class="question">
+
+  <div *ngIf="givenAnswer === 1 && !correctAnswer" class="givenAnswer1"></div>
+  <div *ngIf="givenAnswer === 2 && !correctAnswer" class="givenAnswer2"></div>
+  <div *ngIf="givenAnswer === 3 && !correctAnswer" class="givenAnswer3"></div>
+  <div *ngIf="givenAnswer === 4 && !correctAnswer" class="givenAnswer4"></div>
+
+  <div *ngIf="correctAnswer === 1" class="correctAnswer1"></div>
+  <div *ngIf="correctAnswer === 2" class="correctAnswer2"></div>
+  <div *ngIf="correctAnswer === 3" class="correctAnswer3"></div>
+  <div *ngIf="correctAnswer === 4" class="correctAnswer4"></div>
+
+  <div *ngIf="givenAnswer === 1 && correctAnswer && givenAnswer !== correctAnswer" class="wrongAnswer1"></div>
+  <div *ngIf="givenAnswer === 2 && correctAnswer && givenAnswer !== correctAnswer" class="wrongAnswer2"></div>
+  <div *ngIf="givenAnswer === 3 && correctAnswer && givenAnswer !== correctAnswer" class="wrongAnswer3"></div>
+  <div *ngIf="givenAnswer === 4 && correctAnswer && givenAnswer !== correctAnswer" class="wrongAnswer4"></div>
 
 </div>

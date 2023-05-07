@@ -10,12 +10,18 @@ export class DataStoreService {
   private player1Name: string = "";
   private player2Name: string = "";
 
+  private level: number = 0;
+
   constructor() {
   }
 
   setPlayerNames(player1Name: string, player2Name: string): void {
     this.player1Name = player1Name;
     this.player2Name = player2Name;
+  }
+
+  setLevel(level: number): void {
+    this.level = level;
   }
 
   getPlayerNames(): { player1Name: string, player2Name: string } {
@@ -25,12 +31,28 @@ export class DataStoreService {
     }
   }
 
+  getLevel(): number {
+    return this.level;
+  }
+
+  getQuestions(): { fileName: string, answer: number }[] {
+
+    if (this.level === 1) {
+
+      return this.getElementaryQuestions();
+
+    } else {
+
+      return this.getIntermediateQuestions();
+    }
+  }
+
   getElementaryQuestions(): { fileName: string, answer: number }[] {
-    return this.shuffleArray<{ fileName: string, answer: number }>(elementaryQuestions);
+    return this.shuffleArray<{ fileName: string, answer: number }>(Array.from(elementaryQuestions));
   }
 
   getIntermediateQuestions(): { fileName: string, answer: number }[] {
-    return this.shuffleArray<{ fileName: string, answer: number }>(intermediateQuestions);
+    return this.shuffleArray<{ fileName: string, answer: number }>(Array.from(intermediateQuestions));
   }
 
   private shuffleArray<T>(array: T[]): T[] {

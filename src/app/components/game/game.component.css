@@ -120,3 +120,135 @@
   top: 559px;
   left: 516px;
 }
+
+.givenAnswer1 {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #ffcc00;
+  opacity: 0.8;
+  position: absolute;
+  top: 931px;
+  left: 602px;
+}
+
+.givenAnswer2 {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #ffcc00;
+  opacity: 0.8;
+  position: absolute;
+  top: 984px;
+  left: 602px;
+}
+
+.givenAnswer3 {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #ffcc00;
+  opacity: 0.8;
+  position: absolute;
+  top: 922px;
+  left: 1048px;
+}
+
+.givenAnswer4 {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #ffcc00;
+  opacity: 0.8;
+  position: absolute;
+  top: 982px;
+  left: 1048px;
+}
+
+.correctAnswer1 {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #009900;
+  opacity: 0.8;
+  position: absolute;
+  top: 931px;
+  left: 602px;
+}
+
+.correctAnswer2 {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #009900;
+  opacity: 0.8;
+  position: absolute;
+  top: 984px;
+  left: 602px;
+}
+
+.correctAnswer3 {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #009900;
+  opacity: 0.8;
+  position: absolute;
+  top: 922px;
+  left: 1048px;
+}
+
+.correctAnswer4 {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #009900;
+  opacity: 0.8;
+  position: absolute;
+  top: 982px;
+  left: 1048px;
+}
+
+.wrongAnswer1 {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #990000;
+  opacity: 0.8;
+  position: absolute;
+  top: 931px;
+  left: 602px;
+}
+
+.wrongAnswer2 {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #990000;
+  opacity: 0.8;
+  position: absolute;
+  top: 984px;
+  left: 602px;
+}
+
+.wrongAnswer3 {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #990000;
+  opacity: 0.8;
+  position: absolute;
+  top: 922px;
+  left: 1048px;
+}
+
+.wrongAnswer4 {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #990000;
+  opacity: 0.8;
+  position: absolute;
+  top: 982px;
+  left: 1048px;
+}

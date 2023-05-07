@@ -8,6 +8,14 @@
   <input type="text" [(ngModel)]="player1Name" class="player1-name">
   <input type="text" [(ngModel)]="player2Name" class="player2-name">
 
+  <img *ngIf="isElementarySelected" class="elementary-radio-on">
+  <img *ngIf="!isElementarySelected" class="elementary-radio-off" (click)="selectElementary()">
+  <img class="elementary-label" (click)="selectElementary()">
+
+  <img *ngIf="isIntermediateSelected" class="intermediate-radio-on">
+  <img *ngIf="!isIntermediateSelected" class="intermediate-radio-off" (click)="selectIntermediate()">
+  <img class="intermediate-label" (click)="selectIntermediate()">
+
   <div class="start-game-button" (click)="onStartGameClick()"></div>
 
 </div>
