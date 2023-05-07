@@ -12,7 +12,7 @@ export class AudioService {
   }
 
   playMenuMusic(): void {
-    this.menuMusic.src = 'assets/sounds/menu-music.mp3';
+    this.menuMusic.src = "assets/sounds/menu-music.mp3";
     this.menuMusic.loop = true;
 
     this.menuMusic.load();
@@ -24,9 +24,9 @@ export class AudioService {
   }
 
   playButtonClick(): void {
-    const buttonAudio = new Audio();
+    const buttonAudio: HTMLAudioElement = new Audio();
 
-    buttonAudio.src = 'assets/sounds/button-click.wav';
+    buttonAudio.src = "assets/sounds/button-click.wav";
 
     buttonAudio.load();
     buttonAudio.play();

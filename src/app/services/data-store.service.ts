@@ -25,11 +25,31 @@ export class DataStoreService {
     }
   }
 
-  getElementaryQuestions(): { question: number, answer: number, fileName: string }[] {
-    return elementaryQuestions;
+  getElementaryQuestions(): { fileName: string, answer: number }[] {
+    return this.shuffleArray<{ fileName: string, answer: number }>(elementaryQuestions);
   }
 
-  getIntermediateQuestions(): { question: number, answer: number, fileName: string }[] {
-    return intermediateQuestions;
+  getIntermediateQuestions(): { fileName: string, answer: number }[] {
+    return this.shuffleArray<{ fileName: string, answer: number }>(intermediateQuestions);
+  }
+
+  private shuffleArray<T>(array: T[]): T[] {
+
+    let currentIndex = array.length;
+    let temporaryValue: T;
+    let randomIndex: number;
+
+    while (currentIndex !== 0) {
+
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
   }
 }
