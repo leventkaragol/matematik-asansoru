@@ -48,19 +48,19 @@
 }
 
 .heart {
-  width: 40px;
-  height: 40px;
+  width: 27px;
+  height: 27px;
   position: absolute;
-  top: 88px;
+  top: 75px;
 }
 
 .player1Name {
   position: absolute;
-  top: 23px;
-  left: 45px;
-  width: 430px;
+  top: 19px;
+  left: 10px;
+  width: 310px;
   font-family: sans-serif;
-  font-size: 40px;
+  font-size: 34px;
   font-weight: bold;
   color: #348a63;
   text-align: center;
@@ -71,11 +71,11 @@
 
 .player2Name {
   position: absolute;
-  top: 23px;
-  right: 45px;
-  width: 430px;
+  top: 19px;
+  right: 10px;
+  width: 310px;
   font-family: sans-serif;
-  font-size: 40px;
+  font-size: 34px;
   font-weight: bold;
   color: #348a63;
   text-align: center;
@@ -100,25 +100,43 @@
 }
 
 .elevatorLeft {
-  width: 374px;
-  height: 251px;
+  width: 280px;
+  height: 188px;
   position: absolute;
-  left: 70px;
+  left: 25px;
 }
 
 .elevatorRight {
-  width: 374px;
-  height: 251px;
+  width: 280px;
+  height: 188px;
   position: absolute;
-  right: 70px;
+  right: 25px;
+}
+
+.player1Avatar {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 85px;
+}
+
+.player2Avatar {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  right: 100px;
 }
 
 .question {
-  width: 886px;
-  height: 497px;
+  width: 741px;
+  height: 418px;
   position: absolute;
-  top: 559px;
-  left: 516px;
+  bottom: 18px;
+  left: 348px;
+  border-left: 2px solid #666666;
+  border-top: 2px solid #666666;
+  border-bottom: 2px solid #aaaaaa;
+  border-right: 2px solid #aaaaaa
 }
 
 .givenAnswer1 {

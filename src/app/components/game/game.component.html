@@ -5,24 +5,27 @@
   <div class="player1Name">{{player1Name}}</div>
   <div class="player2Name">{{player2Name}}</div>
 
-  <img *ngIf="player1Life >= 1" src="assets/images/heart.png" class="heart" style="left: 30px;">
-  <img *ngIf="player1Life >= 2" src="assets/images/heart.png" class="heart" style="left: 80px;">
-  <img *ngIf="player1Life >= 3" src="assets/images/heart.png" class="heart" style="left: 130px;">
-  <img *ngIf="player1Life >= 4" src="assets/images/heart.png" class="heart" style="left: 180px;">
-  <img *ngIf="player1Life >= 5" src="assets/images/heart.png" class="heart" style="left: 230px;">
-  <img *ngIf="player1Life >= 6" src="assets/images/heart.png" class="heart" style="left: 280px;">
+  <img *ngIf="player1Life >= 1" src="assets/images/heart.png" class="heart" style="left: 10px;">
+  <img *ngIf="player1Life >= 2" src="assets/images/heart.png" class="heart" style="left: 42px;">
+  <img *ngIf="player1Life >= 3" src="assets/images/heart.png" class="heart" style="left: 74px;">
+  <img *ngIf="player1Life >= 4" src="assets/images/heart.png" class="heart" style="left: 106px;">
+  <img *ngIf="player1Life >= 5" src="assets/images/heart.png" class="heart" style="left: 138px;">
+  <img *ngIf="player1Life >= 6" src="assets/images/heart.png" class="heart" style="left: 170px;">
 
-  <img *ngIf="player2Life >= 6" src="assets/images/heart.png" class="heart" style="left: 1600px;">
-  <img *ngIf="player2Life >= 5" src="assets/images/heart.png" class="heart" style="left: 1650px;">
-  <img *ngIf="player2Life >= 4" src="assets/images/heart.png" class="heart" style="left: 1700px;">
-  <img *ngIf="player2Life >= 3" src="assets/images/heart.png" class="heart" style="left: 1750px;">
-  <img *ngIf="player2Life >= 2" src="assets/images/heart.png" class="heart" style="left: 1800px;">
-  <img *ngIf="player2Life >= 1" src="assets/images/heart.png" class="heart" style="left: 1850px;">
+  <img *ngIf="player2Life >= 6" src="assets/images/heart.png" class="heart" style="right: 170px;">
+  <img *ngIf="player2Life >= 5" src="assets/images/heart.png" class="heart" style="right: 138px;">
+  <img *ngIf="player2Life >= 4" src="assets/images/heart.png" class="heart" style="right: 106px;">
+  <img *ngIf="player2Life >= 3" src="assets/images/heart.png" class="heart" style="right: 74px;">
+  <img *ngIf="player2Life >= 2" src="assets/images/heart.png" class="heart" style="right: 42px;">
+  <img *ngIf="player2Life >= 1" src="assets/images/heart.png" class="heart" style="right: 10px;">
 
   <div class="timer">{{remainingTimeText}}</div>
 
-  <img src="assets/images/elevator-left.png" class="elevatorLeft" [style.top]="player1ElevatorPosition">
-  <img src="assets/images/elevator-right.png" class="elevatorRight" [style.top]="player2ElevatorPosition">
+  <img src="assets/images/elevator-left.png" class="elevatorLeft" [style.bottom]="player1ElevatorPosition">
+  <img src="assets/images/elevator-right.png" class="elevatorRight" [style.bottom]="player2ElevatorPosition">
+
+  <img [src]="player1Image" class="player1Avatar" [style.bottom]="player1AvatarPosition">
+  <img [src]="player2Image" class="player2Avatar" [style.bottom]="player2AvatarPosition">
 
   <img [src]="currentQuestionImage" class="question">
 

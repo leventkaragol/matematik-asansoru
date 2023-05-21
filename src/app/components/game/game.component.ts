@@ -12,11 +12,15 @@ export class GameComponent implements AfterViewInit {
 
   public player1Name: string = "";
   public player1Life: number = 3;
-  public player1ElevatorPosition: string = "700px";
+  public player1ElevatorPosition: string = "99px";
+  public player1AvatarPosition: string = "99px";
+  public player1Image: string = `assets/images/player1-normal.png`;
 
   public player2Name: string = "";
   public player2Life: number = 3;
-  public player2ElevatorPosition: string = "700px";
+  public player2ElevatorPosition: string = "99px";
+  public player2AvatarPosition: string = "99px";
+  public player2Image: string = `assets/images/player2-normal.png`;
 
   public remainingTime: number = 30;
   public remainingTimeText: string = "00:30";
@@ -123,8 +127,7 @@ export class GameComponent implements AfterViewInit {
           }
         }
 
-        this.player1ElevatorPosition = this.calculateElevatorPosition(this.player1Life);
-        this.player2ElevatorPosition = this.calculateElevatorPosition(this.player2Life);
+        this.setElevatorPositions();
 
         // Asanstör animasyonu oynatılacak
 
@@ -136,6 +139,15 @@ export class GameComponent implements AfterViewInit {
       }
 
     }, 5000);
+  }
+
+  private setElevatorPositions(): void {
+
+    this.player1ElevatorPosition = this.calculateElevatorPosition(this.player1Life);
+    this.player2ElevatorPosition = this.calculateElevatorPosition(this.player2Life);
+
+    this.player1AvatarPosition = this.calculateAvatarPosition(this.player1Life);
+    this.player2AvatarPosition = this.calculateAvatarPosition(this.player2Life);
   }
 
   private startNewGame(): void {
@@ -152,8 +164,7 @@ export class GameComponent implements AfterViewInit {
     this.player1Life = 3;
     this.player2Life = 3;
 
-    this.player1ElevatorPosition = this.calculateElevatorPosition(this.player1Life);
-    this.player2ElevatorPosition = this.calculateElevatorPosition(this.player2Life);
+    this.setElevatorPositions();
 
     this.askNewQuestion();
 
@@ -179,8 +190,7 @@ export class GameComponent implements AfterViewInit {
         this.player1Life--;
         this.player2Life--;
 
-        this.player1ElevatorPosition = this.calculateElevatorPosition(this.player1Life);
-        this.player2ElevatorPosition = this.calculateElevatorPosition(this.player2Life);
+        this.setElevatorPositions();
 
         if (this.player1Life === 0 || this.player2Life === 0) {
 
@@ -199,21 +209,44 @@ export class GameComponent implements AfterViewInit {
 
     switch (life) {
       case 0:
-        return "1800px";
+        return "-422px";
       case 1:
-        return "933px";
+        return "-115px";
       case 2:
-        return "816px";
+        return "-8px";
       case 3:
-        return "700px";
+        return "99px";
       case 4:
-        return "583px";
+        return "206px";
       case 5:
-        return "466px";
+        return "313px";
       case 6:
-        return "350px";
+        return "420px";
       default:
-        console.log(`Hatalı can değeri ${life}`);
+
+        throw new Error(`Hatalı can değeri ${life}`);
+    }
+  }
+
+  private calculateAvatarPosition(life: number): string {
+
+    switch (life) {
+      case 0:
+        return "-283px";
+      case 1:
+        return "24px";
+      case 2:
+        return "131px";
+      case 3:
+        return "238px";
+      case 4:
+        return "345px";
+      case 5:
+        return "452px";
+      case 6:
+        return "559px";
+      default:
+
         throw new Error(`Hatalı can değeri ${life}`);
     }
   }
