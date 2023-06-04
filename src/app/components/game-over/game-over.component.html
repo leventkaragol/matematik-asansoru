@@ -1,0 +1,14 @@
+<div class="backdrop" (click)="onCloseClick()"></div>
+<div class="game-over-form">
+
+  <div class="close-form-button" (click)="onCloseClick()"></div>
+
+  <img *ngIf="player1Won" src="assets/images/player1-happy.png" class="player1Avatar">
+  <img *ngIf="player2Won" src="assets/images/player2-happy.png" class="player2Avatar">
+  <img *ngIf="noPlayerWon" src="assets/images/question-mark.png" class="noPlayerAvatar">
+
+  <div class="playerName">{{playerName}}</div>
+
+  <div class="new-game-button" (click)="onNewGameClick()"></div>
+
+</div>

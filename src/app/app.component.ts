@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {trigger, state, style, transition, animate} from '@angular/animations';
+import {MainMenuComponent} from "./components/main-menu/main-menu.component";
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import {trigger, state, style, transition, animate} from '@angular/animations';
   ]
 })
 export class AppComponent {
+  @ViewChild(MainMenuComponent, {static: false}) mainMenuComponent: MainMenuComponent | null = null;
 
   gameLoaded = false;
   mainMenuLoaded = false;
@@ -28,7 +30,7 @@ export class AppComponent {
 
     setTimeout(() => {
       this.splashScreenState = 'visible';
-    }, 300);
+    }, 500);
 
     setTimeout(() => {
       this.splashScreenState = 'hidden';
@@ -43,5 +45,19 @@ export class AppComponent {
   onStartGameClick() {
 
     this.gameVisible = true;
+  }
+
+  onMainMenuClick(startNewGame: boolean) {
+
+    this.gameVisible = false;
+
+    setTimeout(() => {
+
+      if (startNewGame && this.mainMenuComponent) {
+
+        this.mainMenuComponent.onNewGameClick();
+
+      }
+    });
   }
 }

@@ -136,7 +136,7 @@
   border-left: 2px solid #666666;
   border-top: 2px solid #666666;
   border-bottom: 2px solid #aaaaaa;
-  border-right: 2px solid #aaaaaa
+  border-right: 2px solid #aaaaaa;
 }
 
 .givenAnswer1 {
@@ -146,8 +146,8 @@
   background-color: #ffcc00;
   opacity: 0.8;
   position: absolute;
-  top: 931px;
-  left: 602px;
+  bottom: 71px;
+  left: 416px;
 }
 
 .givenAnswer2 {
@@ -157,8 +157,8 @@
   background-color: #ffcc00;
   opacity: 0.8;
   position: absolute;
-  top: 984px;
-  left: 602px;
+  bottom: 78px;
+  left: 791px;
 }
 
 .givenAnswer3 {
@@ -168,8 +168,8 @@
   background-color: #ffcc00;
   opacity: 0.8;
   position: absolute;
-  top: 922px;
-  left: 1048px;
+  bottom: 27px;
+  left: 415px;
 }
 
 .givenAnswer4 {
@@ -179,8 +179,8 @@
   background-color: #ffcc00;
   opacity: 0.8;
   position: absolute;
-  top: 982px;
-  left: 1048px;
+  bottom: 27px;
+  left: 791px;
 }
 
 .correctAnswer1 {
@@ -190,8 +190,8 @@
   background-color: #009900;
   opacity: 0.8;
   position: absolute;
-  top: 931px;
-  left: 602px;
+  bottom: 71px;
+  left: 416px;
 }
 
 .correctAnswer2 {
@@ -201,8 +201,8 @@
   background-color: #009900;
   opacity: 0.8;
   position: absolute;
-  top: 984px;
-  left: 602px;
+  bottom: 78px;
+  left: 791px;
 }
 
 .correctAnswer3 {
@@ -212,8 +212,8 @@
   background-color: #009900;
   opacity: 0.8;
   position: absolute;
-  top: 922px;
-  left: 1048px;
+  bottom: 27px;
+  left: 415px;
 }
 
 .correctAnswer4 {
@@ -223,8 +223,8 @@
   background-color: #009900;
   opacity: 0.8;
   position: absolute;
-  top: 982px;
-  left: 1048px;
+  bottom: 27px;
+  left: 791px;
 }
 
 .wrongAnswer1 {
@@ -234,8 +234,8 @@
   background-color: #990000;
   opacity: 0.8;
   position: absolute;
-  top: 931px;
-  left: 602px;
+  bottom: 71px;
+  left: 416px;
 }
 
 .wrongAnswer2 {
@@ -245,8 +245,8 @@
   background-color: #990000;
   opacity: 0.8;
   position: absolute;
-  top: 984px;
-  left: 602px;
+  bottom: 78px;
+  left: 791px;
 }
 
 .wrongAnswer3 {
@@ -256,8 +256,8 @@
   background-color: #990000;
   opacity: 0.8;
   position: absolute;
-  top: 922px;
-  left: 1048px;
+  bottom: 27px;
+  left: 415px;
 }
 
 .wrongAnswer4 {
@@ -267,6 +267,6 @@
   background-color: #990000;
   opacity: 0.8;
   position: absolute;
-  top: 982px;
-  left: 1048px;
+  bottom: 27px;
+  left: 791px;
 }

@@ -1,0 +1,102 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200vh;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 100;
+}
+
+.game-over-form {
+  position: fixed;
+  top: 20vh;
+  left: calc(50% - 237px);
+  width: 474px;
+  height: 650px;
+  z-index: 101;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+
+  background-image: url('src/assets/images/game-over-dialog.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.close-form-button {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  background-image: url('src/assets/images/close-form-button.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  top: 2px;
+  right: 25px;
+}
+
+.close-form-button:hover {
+  background-image: url('src/assets/images/close-form-button-hover.png');
+}
+
+.new-game-button {
+  display: inline-block;
+  width: 250px;
+  height: 80px;
+  background-image: url('src/assets/images/new-game-button.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  bottom: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.new-game-button:hover {
+  background-image: url('src/assets/images/new-game-button-hover.png');
+}
+
+.player1Avatar {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 160px;
+  bottom: 245px;
+}
+
+.player2Avatar {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 160px;
+  bottom: 235px;
+}
+
+.noPlayerAvatar {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 160px;
+  bottom: 215px;
+}
+
+.playerName {
+  position: absolute;
+  bottom: 180px;
+  left: 79px;
+  width: 310px;
+  font-family: sans-serif;
+  font-size: 41px;
+  font-weight: bold;
+  color: #348a63;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-shadow: 1px 1px 2px #000000;
+}

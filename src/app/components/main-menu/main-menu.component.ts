@@ -10,7 +10,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
   @Output() fullscreenClick = new EventEmitter<void>()
   @Output() startGameClick = new EventEmitter<void>()
 
-  newGameFormVisible: boolean = false;
+  public newGameFormVisible: boolean = false;
 
   private audio: HTMLAudioElement;
 

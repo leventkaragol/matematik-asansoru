@@ -2,6 +2,8 @@
 
 <div *ngIf="isGameStarted" id="gameContainer">
 
+  <app-game-over *ngIf="gameOverFormVisible" [winner]="winner" (closeClick)="onGameOverFormCloseClick()" (newGameClick)="onNewGameClick()"></app-game-over>
+
   <div class="player1Name">{{player1Name}}</div>
   <div class="player2Name">{{player2Name}}</div>
 

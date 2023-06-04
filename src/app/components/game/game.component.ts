@@ -1,4 +1,4 @@
-import {Component, HostListener, AfterViewInit} from '@angular/core';
+import {Component, HostListener, AfterViewInit, Output, EventEmitter} from '@angular/core';
 import {DataStoreService} from "../../services/data-store.service";
 
 @Component({
@@ -7,6 +7,7 @@ import {DataStoreService} from "../../services/data-store.service";
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements AfterViewInit {
+  @Output() mainMenuClick = new EventEmitter<boolean>()
 
   public isGameStarted: boolean = false;
 
@@ -36,6 +37,10 @@ export class GameComponent implements AfterViewInit {
   private questionList: { fileName: string, answer: number }[] = [];
   private currentQuestion?: { fileName: string, answer: number } = undefined;
   public currentQuestionImage: string = "";
+
+  public gameOverFormVisible: boolean = false;
+
+  public winner: string = "";
 
   constructor(private dataStoreService: DataStoreService) {
 
@@ -176,7 +181,7 @@ export class GameComponent implements AfterViewInit {
 
   private startTimer(): void {
 
-    this.remainingTime = 10;
+    this.remainingTime = 30;
 
     this.timerController = setInterval(() => {
 
@@ -194,7 +199,20 @@ export class GameComponent implements AfterViewInit {
 
         if (this.player1Life === 0 || this.player2Life === 0) {
 
-          // TODO: İki oyuncudan biri kaybetti
+          if (this.player1Life > 0) {
+
+            this.winner = "player1";
+
+          } else if (this.player2Life > 0) {
+
+            this.winner = "player2";
+
+          } else {
+
+            this.winner = "none";
+          }
+
+          this.gameOverFormVisible = true;
 
         } else {
 
@@ -279,5 +297,15 @@ export class GameComponent implements AfterViewInit {
 
       // TODO: Soru bitmiş
     }
+  }
+
+  onNewGameClick(): void {
+
+    this.mainMenuClick.emit(true);
+  }
+
+  onGameOverFormCloseClick(): void {
+
+    this.mainMenuClick.emit(false);
   }
 }

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {DataStoreService} from "../../../services/data-store.service";
+import {DataStoreService} from "../../services/data-store.service";
 
 @Component({
   selector: 'app-new-game',
@@ -10,11 +10,11 @@ export class NewGameComponent {
   @Output() closeClick = new EventEmitter<void>()
   @Output() startGameClick = new EventEmitter<void>()
 
-  player1Name: string = "Esma";
-  player2Name: string = "Ayşe";
+  public player1Name: string = "";
+  public player2Name: string = "";
 
-  isElementarySelected: boolean = true;
-  isIntermediateSelected: boolean = false;
+  public isElementarySelected: boolean = true;
+  public isIntermediateSelected: boolean = false;
 
   constructor(private dataStoreService: DataStoreService) {
 

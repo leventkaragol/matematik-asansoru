@@ -1,4 +1,4 @@
 <app-pre-load *ngIf="!gameLoaded" (fullscreenClick)="onFullscreenClick()"></app-pre-load>
 <app-splash-screen *ngIf="gameLoaded && !gameVisible && !mainMenuLoaded" [@fadeInOut]="splashScreenState"></app-splash-screen>
 <app-main-menu *ngIf="gameLoaded && !gameVisible && mainMenuLoaded" [@fadeInOut]="mainMenuState" (startGameClick)="onStartGameClick()"></app-main-menu>
-<app-game *ngIf="gameLoaded && gameVisible"></app-game>
+<app-game *ngIf="gameLoaded && gameVisible" (mainMenuClick)="onMainMenuClick($event)"></app-game>
