@@ -23,9 +23,6 @@ export class GameComponent implements AfterViewInit {
   public player2AvatarPosition: string = "99px";
   public player2Image: string = `assets/images/player2-normal.png`;
 
-  public remainingTime: number = 30;
-  public remainingTimeText: string = "00:30";
-
   public givenAnswer: number = 0;
   public correctAnswer: number = 0;
   public answeredPlayer: number = 0;
@@ -42,6 +39,11 @@ export class GameComponent implements AfterViewInit {
 
   public winner: string = "";
 
+  private readonly ANSWER_TIME: number = 30;
+
+  public remainingTime: number = this.ANSWER_TIME;
+  public remainingTimeText: string = `00:${this.ANSWER_TIME}`;
+
   constructor(private dataStoreService: DataStoreService) {
 
   }
@@ -51,8 +53,18 @@ export class GameComponent implements AfterViewInit {
     this.startNewGame();
   }
 
+  sleep(duration: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, duration));
+  }
+
+
   @HostListener('window:keydown', ['$event'])
-  onKeydown(event: KeyboardEvent): void {
+  async onKeydown(event: KeyboardEvent): Promise<void> {
+
+    if (this.givenAnswer !== 0) {
+
+      return;
+    }
 
     if (event.code === "Digit1") {
 
@@ -99,51 +111,62 @@ export class GameComponent implements AfterViewInit {
 
     // TODO: Heyecanlı bir müzik çalınacak
 
-    setTimeout(() => {
+    await this.sleep(5000);
 
-      if (this.currentQuestion) {
+    if (this.currentQuestion) {
 
-        this.correctAnswer = this.currentQuestion.answer;
+      this.correctAnswer = this.currentQuestion.answer;
 
-        if (this.answeredPlayer === 1) {
+      if (this.answeredPlayer === 1) {
 
-          if (this.givenAnswer === this.correctAnswer) {
+        if (this.givenAnswer === this.correctAnswer) {
 
-            this.player1Life++;
-            this.player2Life--;
-
-          } else {
-
-            this.player1Life--;
-            this.player2Life++;
-          }
+          this.player1Life++;
+          this.player2Life--;
 
         } else {
 
-          if (this.givenAnswer === this.correctAnswer) {
-
-            this.player1Life--;
-            this.player2Life++;
-
-          } else {
-
-            this.player1Life++;
-            this.player2Life--;
-          }
+          this.player1Life--;
+          this.player2Life++;
         }
 
-        this.setElevatorPositions();
+      } else {
 
-        // Asanstör animasyonu oynatılacak
+        if (this.givenAnswer === this.correctAnswer) {
 
-        setTimeout(() => {
+          this.player1Life--;
+          this.player2Life++;
 
-          this.askNewQuestion();
+        } else {
 
-        }, 5000);
+          this.player1Life++;
+          this.player2Life--;
+        }
       }
 
-    }, 5000);
+      this.setElevatorPositions();
+
+      if (this.player1Life === 0 || this.player2Life === 0) {
+
+        if (this.player1Life > 0) {
+
+          this.winner = "player1";
+
+        } else if (this.player2Life > 0) {
+
+          this.winner = "player2";
+
+        }
+
+        this.gameOverFormVisible = true;
+
+      } else {
+
+        await this.sleep(5000);
+
+        this.askNewQuestion();
+      }
+    }
   }
 
   private setElevatorPositions(): void {
@@ -181,7 +204,7 @@ export class GameComponent implements AfterViewInit {
 
   private startTimer(): void {
 
-    this.remainingTime = 30;
+    this.remainingTime = this.ANSWER_TIME;
 
     this.timerController = setInterval(() => {
 
@@ -273,30 +296,32 @@ export class GameComponent implements AfterViewInit {
 
     this.currentQuestion = this.questionList.pop();
 
-    if (this.currentQuestion) {
+    if (!this.currentQuestion) {
 
-      if (this.level === 1) {
+      // Sorular bitti, tekrar başa dönülüp sorular karıştırılıyor
 
-        this.currentQuestionImage = `assets/questions/elementary/${this.currentQuestion.fileName}`;
+      this.questionList = this.dataStoreService.getQuestions();
 
-      } else {
+      this.currentQuestion = this.questionList.pop();
+    }
 
-        this.currentQuestionImage = `assets/questions/intermediate/${this.currentQuestion.fileName}`;
-      }
+    if (this.level === 1) {
 
-      this.givenAnswer = 0;
-      this.answeredPlayer = 0;
-      this.correctAnswer = 0;
-
-      this.remainingTime = 10;
-      this.remainingTimeText = "00:" + (this.remainingTime < 10 ? "0" + this.remainingTime : this.remainingTime);
-
-      this.startTimer();
+      this.currentQuestionImage = `assets/questions/elementary/${this.currentQuestion!.fileName}`;
 
     } else {
 
-      // TODO: Soru bitmiş
+      this.currentQuestionImage = `assets/questions/intermediate/${this.currentQuestion!.fileName}`;
     }
+
+    this.givenAnswer = 0;
+    this.answeredPlayer = 0;
+    this.correctAnswer = 0;
+
+    this.remainingTime = this.ANSWER_TIME;
+    this.remainingTimeText = "00:" + (this.remainingTime < 10 ? "0" + this.remainingTime : this.remainingTime);
+
+    this.startTimer();
   }
 
   onNewGameClick(): void {
