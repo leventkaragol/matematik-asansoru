@@ -26,24 +26,33 @@ export class GameOverComponent implements AfterViewInit {
 
     if (this.winner === "player1") {
 
-      this.playerName = playerNames.player1Name;
-      this.player1Won = true;
+      setTimeout(() => {
 
-      this.audioService.playWin();
+        this.playerName = playerNames.player1Name;
+        this.player1Won = true;
+
+        this.audioService.playWin();
+      });
 
     } else if (this.winner === "player2") {
 
-      this.playerName = playerNames.player2Name;
-      this.player2Won = true;
+      setTimeout(() => {
 
-      this.audioService.playWin();
+        this.playerName = playerNames.player2Name;
+        this.player2Won = true;
+
+        this.audioService.playWin();
+      });
 
     } else if (this.winner === "none") {
 
-      this.playerName = "";
-      this.noPlayerWon = true;
+      setTimeout(() => {
 
-      this.audioService.playNobodyWin();
+        this.playerName = "";
+        this.noPlayerWon = true;
+
+        this.audioService.playNobodyWin();
+      });
     }
   }
 

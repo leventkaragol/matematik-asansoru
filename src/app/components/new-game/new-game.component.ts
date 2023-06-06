@@ -17,7 +17,6 @@ export class NewGameComponent {
   public isIntermediateSelected: boolean = false;
 
   constructor(private dataStoreService: DataStoreService) {
-
   }
 
   onCloseClick(): void {
@@ -26,6 +25,11 @@ export class NewGameComponent {
   }
 
   onStartGameClick(): void {
+
+    if (!this.player1Name || !this.player2Name) {
+
+      return;
+    }
 
     this.dataStoreService.setPlayerNames(this.player1Name, this.player2Name);
 

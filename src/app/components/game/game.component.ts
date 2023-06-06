@@ -42,7 +42,7 @@ export class GameComponent implements AfterViewInit {
 
   public winner: string = "";
 
-  private readonly ANSWER_TIME: number = 10;
+  private readonly ANSWER_TIME: number = 30;
 
   public remainingTime: number = this.ANSWER_TIME;
   public remainingTimeText: string = `00:${this.ANSWER_TIME}`;
@@ -110,6 +110,10 @@ export class GameComponent implements AfterViewInit {
 
       this.givenAnswer = 4;
       this.answeredPlayer = 2;
+
+    } else {
+
+      return;
     }
 
     clearInterval(this.timerController);
