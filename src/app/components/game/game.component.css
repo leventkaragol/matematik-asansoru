@@ -127,6 +127,20 @@
   right: 100px;
 }
 
+.player1Answered {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  left: 122px;
+}
+
+.player2Answered {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  right: 137px;
+}
+
 .question {
   width: 741px;
   height: 418px;

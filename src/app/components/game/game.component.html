@@ -29,6 +29,9 @@
   <img [src]="player1Image" class="player1Avatar" [style.bottom]="player1AvatarPosition">
   <img [src]="player2Image" class="player2Avatar" [style.bottom]="player2AvatarPosition">
 
+  <img *ngIf="answeredPlayer === 1 && player1Life > 0" src="assets/images/down-arrow.png" class="player1Answered" [style.bottom]="player1ArrowPosition">
+  <img *ngIf="answeredPlayer === 2 && player2Life > 0" src="assets/images/down-arrow.png" class="player2Answered" [style.bottom]="player2ArrowPosition">
+
   <img [src]="currentQuestionImage" class="question">
 
   <div *ngIf="givenAnswer === 1 && !correctAnswer" class="givenAnswer1"></div>

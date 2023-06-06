@@ -34,3 +34,13 @@
 .start-game-button:hover {
   background-image: url('src/assets/images/start-game-button-hover.png');
 }
+
+.main-title {
+  display: inline-block;
+  width: 888px;
+  height: 74px;
+  position: absolute;
+  top: 260px;
+  left: 50%;
+  transform: translateX(-50%);
+}

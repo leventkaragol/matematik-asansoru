@@ -12,10 +12,10 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 
   public newGameFormVisible: boolean = false;
 
-  private audio: HTMLAudioElement;
+  // private audio: HTMLAudioElement;
 
   constructor(private audioService: AudioService) {
-    this.audio = new Audio();
+    // this.audio = new Audio();
   }
 
   ngOnInit() {
@@ -28,8 +28,6 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 
   onNewGameClick(): void {
 
-    this.audioService.playButtonClick();
-
     this.newGameFormVisible = true;
   }
 
@@ -39,8 +37,6 @@ export class MainMenuComponent implements OnInit, OnDestroy {
   }
 
   onStartGameClick(): void {
-
-    this.audioService.playButtonClick();
 
     this.newGameFormVisible = false;
 

@@ -1,5 +1,6 @@
 import {Component, HostListener, AfterViewInit, Output, EventEmitter} from '@angular/core';
 import {DataStoreService} from "../../services/data-store.service";
+import {AudioService} from "../../services/audio.service";
 
 @Component({
   selector: 'app-game',
@@ -15,13 +16,15 @@ export class GameComponent implements AfterViewInit {
   public player1Life: number = 3;
   public player1ElevatorPosition: string = "99px";
   public player1AvatarPosition: string = "99px";
-  public player1Image: string = `assets/images/player1-normal.png`;
+  public player1Image: string = "assets/images/player1-normal.png";
+  public player1ArrowPosition: string = "";
 
   public player2Name: string = "";
   public player2Life: number = 3;
   public player2ElevatorPosition: string = "99px";
   public player2AvatarPosition: string = "99px";
-  public player2Image: string = `assets/images/player2-normal.png`;
+  public player2Image: string = "assets/images/player2-normal.png";
+  public player2ArrowPosition: string = "";
 
   public givenAnswer: number = 0;
   public correctAnswer: number = 0;
@@ -39,12 +42,12 @@ export class GameComponent implements AfterViewInit {
 
   public winner: string = "";
 
-  private readonly ANSWER_TIME: number = 30;
+  private readonly ANSWER_TIME: number = 10;
 
   public remainingTime: number = this.ANSWER_TIME;
   public remainingTimeText: string = `00:${this.ANSWER_TIME}`;
 
-  constructor(private dataStoreService: DataStoreService) {
+  constructor(private dataStoreService: DataStoreService, private audioService: AudioService) {
 
   }
 
@@ -65,6 +68,8 @@ export class GameComponent implements AfterViewInit {
 
       return;
     }
+
+    this.audioService.stopLastSeconds();
 
     if (event.code === "Digit1") {
 
@@ -109,7 +114,7 @@ export class GameComponent implements AfterViewInit {
 
     clearInterval(this.timerController);
 
-    // TODO: Heyecanlı bir müzik çalınacak
+    this.audioService.playWaiting();
 
     await this.sleep(5000);
 
@@ -121,26 +126,46 @@ export class GameComponent implements AfterViewInit {
 
         if (this.givenAnswer === this.correctAnswer) {
 
+          this.audioService.playCorrectAnswer();
+
           this.player1Life++;
           this.player2Life--;
 
+          this.player1Image = "assets/images/player1-normal.png";
+          this.player2Image = "assets/images/player2-sad.png";
+
         } else {
+
+          this.audioService.playWrongAnswer();
 
           this.player1Life--;
           this.player2Life++;
+
+          this.player1Image = "assets/images/player1-sad.png";
+          this.player2Image = "assets/images/player2-normal.png";
         }
 
       } else {
 
         if (this.givenAnswer === this.correctAnswer) {
 
+          this.audioService.playCorrectAnswer();
+
           this.player1Life--;
           this.player2Life++;
 
+          this.player1Image = "assets/images/player1-sad.png";
+          this.player2Image = "assets/images/player2-normal.png";
+
         } else {
+
+          this.audioService.playWrongAnswer();
 
           this.player1Life++;
           this.player2Life--;
+
+          this.player1Image = "assets/images/player1-normal.png";
+          this.player2Image = "assets/images/player2-sad.png";
         }
       }
 
@@ -157,6 +182,8 @@ export class GameComponent implements AfterViewInit {
           this.winner = "player2";
 
         }
+
+        await this.sleep(2000);
 
         this.gameOverFormVisible = true;
 
@@ -176,6 +203,9 @@ export class GameComponent implements AfterViewInit {
 
     this.player1AvatarPosition = this.calculateAvatarPosition(this.player1Life);
     this.player2AvatarPosition = this.calculateAvatarPosition(this.player2Life);
+
+    this.player1ArrowPosition = this.calculateArrowPosition(this.player1Life);
+    this.player2ArrowPosition = this.calculateArrowPosition(this.player2Life);
   }
 
   private startNewGame(): void {
@@ -206,17 +236,27 @@ export class GameComponent implements AfterViewInit {
 
     this.remainingTime = this.ANSWER_TIME;
 
-    this.timerController = setInterval(() => {
+    this.timerController = setInterval(async () => {
 
       this.remainingTime--;
       this.remainingTimeText = "00:" + (this.remainingTime < 10 ? "0" + this.remainingTime : this.remainingTime);
+
+      if (this.remainingTime === 5) {
+
+        this.audioService.playLastSeconds();
+      }
 
       if (this.remainingTime === 0) {
 
         clearInterval(this.timerController);
 
+        this.audioService.playWrongAnswer();
+
         this.player1Life--;
         this.player2Life--;
+
+        this.player1Image = "assets/images/player1-sad.png";
+        this.player2Image = "assets/images/player2-sad.png";
 
         this.setElevatorPositions();
 
@@ -234,6 +274,8 @@ export class GameComponent implements AfterViewInit {
 
             this.winner = "none";
           }
+
+          await this.sleep(2000);
 
           this.gameOverFormVisible = true;
 
@@ -292,7 +334,34 @@ export class GameComponent implements AfterViewInit {
     }
   }
 
+  private calculateArrowPosition(life: number): string {
+
+    switch (life) {
+      case 0:
+        return "-123px";
+      case 1:
+        return "184px";
+      case 2:
+        return "291px";
+      case 3:
+        return "398px";
+      case 4:
+        return "505px";
+      case 5:
+        return "612px";
+      case 6:
+        return "819px";
+      default:
+
+        throw new Error(`Hatalı can değeri ${life}`);
+    }
+  }
+
   private askNewQuestion(): void {
+
+    this.audioService.stopLastSeconds();
+
+    this.audioService.playNewQuestion();
 
     this.currentQuestion = this.questionList.pop();
 

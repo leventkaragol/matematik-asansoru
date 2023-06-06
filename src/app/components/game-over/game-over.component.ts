@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, EventEmitter, Input, Output} from '@angular/core';
 import {DataStoreService} from "../../services/data-store.service";
+import {AudioService} from "../../services/audio.service";
 
 @Component({
   selector: 'app-game-over',
@@ -16,8 +17,7 @@ export class GameOverComponent implements AfterViewInit {
   public noPlayerWon: boolean = false;
   public playerName: string = "";
 
-  constructor(private dataStoreService: DataStoreService) {
-
+  constructor(private dataStoreService: DataStoreService, private audioService: AudioService) {
   }
 
   ngAfterViewInit(): void {
@@ -29,15 +29,21 @@ export class GameOverComponent implements AfterViewInit {
       this.playerName = playerNames.player1Name;
       this.player1Won = true;
 
+      this.audioService.playWin();
+
     } else if (this.winner === "player2") {
 
       this.playerName = playerNames.player2Name;
       this.player2Won = true;
 
+      this.audioService.playWin();
+
     } else if (this.winner === "none") {
 
       this.playerName = "";
       this.noPlayerWon = true;
+
+      this.audioService.playNobodyWin();
     }
   }
 
