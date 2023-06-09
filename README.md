@@ -2,6 +2,8 @@
 
 Bu oyun projesi, 2023 yılında Erdem Koleji bilim şenliğine katılmak amacıyla 7. sınıf öğrencisi Esma Zehra KARAGÖL, Zehra KÜÇÜK ve Selahattin Serdar MENGİR ile birlikte geliştirilmiştir. 
 
+![screenshot.png](resources%2Fimages%2Fscreenshot.png)
+
 Proje altyapısı Angular 15.2.5 versiyonu üzerine kurulmuştur.
 
 
